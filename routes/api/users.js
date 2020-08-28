@@ -97,7 +97,7 @@ router.post("/login", (req, res) => {
         jwt.sign(
           payload,
           key.secretOrKey,
-          { expiresIn: 3600000 },
+          { expiresIn: 3600 },
           (err, token) => {
             res.json({
               success: "true",
