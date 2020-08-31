@@ -45,20 +45,23 @@ router.get(
 //@route    GET api/profile/all
 //@desc     get all profiles
 //@access   public access
-router.get("/all", (req, res) => {
-  const errors = {};
-  Profile.find({})
-    .populate("user", ["name", "avatar"])
-    .then((profiles) => {
-      if (!profiles) {
-        errors.noprofile = "There are no profiles";
-        return res.status(404).json(errors);
-      }
-      res.json(profiles);
-    })
-    .catch((err) => res.status(404).json({ profile: "There are no profiles" }));
-});
+router.get('/all',
+  (req, res) => {
+    const errors = {};
 
+    Profile.find()
+      .populate('user', ['name', 'avatar'])
+      .then(profiles => {
+        if(!profiles) {
+          errors.noprofile = 'There are no profiles';
+          res.status(404).json(errors);
+        }
+
+        res.json(profiles);
+      })
+      .catch(err => res.status(404).json({profile: 'There are no profiles'}));
+  }
+);
 //@route    GET api/profile/handle/:handle
 //@desc     get profile by handle
 //@access   public access
@@ -271,10 +274,12 @@ router.delete(
   passsport.authenticate("jwt", { session: false }),
   (req, res) => {
     Profile.findOneAndRemove({ user: req.user.id }).then(() => {
-      User.findOneAndRemove({ id: req.user.id }).then(() =>
+      User.findOneAndRemove({ _id: req.user.id }).then(() =>
         res.json({ success: "true" })
       );
     });
   }
 );
+
+
 module.exports = router;
