@@ -9,11 +9,10 @@ Also, each user has a profile that some contact info, and list of skills with a 
 This was a guided project as part of a bootcamp style summer internship that I completed last year.
 
 **Screenshots**
-
-Screenshots can be found on this link
-
-https://drive.google.com/file/d/1FVWFXPLJswJHoAynZpJU5BmH4XKv90sH/view?usp=sharing
-
+![Login Page](https://i.ibb.co/C8g2fc3/Login.png)
+![Signup Page](https://i.ibb.co/BjrdjRT/Signup.png)
+![Dashboard](https://i.ibb.co/89WrYQm/Dashboard.png)
+![Post Feed](https://i.ibb.co/zQysrtN/Post-Feed.pngv)
 
 **Tech/framework used**
 
